@@ -11,6 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+
+#providers-map {
+  height: 1000px;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

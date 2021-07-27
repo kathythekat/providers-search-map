@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+#providers-map {
+  height: 500px;
+}
