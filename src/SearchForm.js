@@ -6,6 +6,8 @@ const SearchForm = () => {
   /**
    * TODO: handleChange, handleSubmit
    */
+
+  //TODO: only show 6-8 results at a time and have show more arrow
   return (
     <form className="flex flex-col">
       {specialtiesList.map((specialty) => (
