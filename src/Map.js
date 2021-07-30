@@ -6,17 +6,14 @@ import specialtiesCodes from "./specialties.json";
 const Map = ({ specialty }) => {
   console.log("map being rendered");
   console.log("SPECIALTY", specialty);
-  const [providerLocation, setProviders] = useState(null);
-  const [providerInfo, setProviderInfo] = useState(null);
+  const [providersData, setProvidersData] = useState([]);
 
   useEffect(() => {
     function filterResults() {
       const filteredResults = providers.filter((provider) =>
         provider.specialties.some((sp) => specialtiesCodes[sp] === specialty[0])
       );
-      setProviderInfo(filteredResults[0]);
-      setProviders(filteredResults[0].location.latLng);
-      console.log(providerLocation);
+      setProvidersData(filteredResults.slice(0, 100));
     }
     if (specialty) filterResults();
   }, [specialty]);
@@ -34,17 +31,15 @@ const Map = ({ specialty }) => {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {providerLocation ? (
-          <Marker position={[providerLocation.lat, providerLocation.lng]}>
-            <Popup>{providerInfo.name}</Popup>
-          </Marker>
-        ) : (
-          <Marker position={[37.9577384, -122.0710787]}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
-        )}
+        {providersData &&
+          providersData.map((p) => (
+            <Marker
+              position={[p.location.latLng.lat, p.location.latLng.lng]}
+              key={p.id}
+            >
+              <Popup>{p.name}</Popup>
+            </Marker>
+          ))}
       </MapContainer>
     </>
   );

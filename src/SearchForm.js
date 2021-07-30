@@ -9,9 +9,6 @@ const SearchForm = ({ getLocation, hideModal }) => {
   const groupedSpecialties = splitSpecialties(specialtiesList);
   const [resultsIdx, setResultsIdx] = useState(0);
   const [specialtyChoice, setSpecialtyChoice] = useState([]);
-  /**
-   * TODO: handleChange, handleSubmit
-   */
 
   function handleChange(e) {
     setSpecialtyChoice((choice) => [...choice, e.target.value]);
@@ -24,8 +21,6 @@ const SearchForm = ({ getLocation, hideModal }) => {
     console.log("submitted");
     hideModal();
   }
-
-  console.log(specialtyChoice);
 
   function toggleResults() {
     setResultsIdx((results) =>
@@ -54,7 +49,7 @@ const SearchForm = ({ getLocation, hideModal }) => {
         Show more results
         <FontAwesomeIcon onClick={toggleResults} icon={faAngleDown} size="2x" />
       </div>
-      <div className="flex items-center justify-end p-4 border-t border-solid border-blueGray-200 rounded-b">
+      <div className="flex items-center justify-end pt-4 border-t border-solid border-blueGray-200 rounded-b">
         <button
           className="bg-green-500 text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           type="submit"
