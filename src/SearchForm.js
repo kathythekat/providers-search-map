@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-const SearchForm = ({ getLocation }) => {
+const SearchForm = ({ getLocation, hideModal }) => {
   const specialtiesList = Object.values(specialties);
   const groupedSpecialties = splitSpecialties(specialtiesList);
   const [resultsIdx, setResultsIdx] = useState(0);
@@ -22,6 +22,7 @@ const SearchForm = ({ getLocation }) => {
     e.preventDefault();
     getLocation(specialtyChoice);
     console.log("submitted");
+    hideModal();
   }
 
   console.log(specialtyChoice);
@@ -32,7 +33,6 @@ const SearchForm = ({ getLocation }) => {
     );
   }
 
-  //TODO: only show 5 results at a time and have show more arrow
   return (
     <form onSubmit={handleSubmit} className="flex flex-col">
       {groupedSpecialties[resultsIdx].map((specialty) => (
@@ -58,6 +58,7 @@ const SearchForm = ({ getLocation }) => {
         <button
           className="bg-green-500 text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           type="submit"
+          onSubmit={handleSubmit}
         >
           Search
         </button>

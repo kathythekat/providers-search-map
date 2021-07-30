@@ -6,6 +6,10 @@ export default function SearchModal({ getLocation }) {
   const modalRef = useRef();
   const triggerRef = useRef();
 
+  const hideModal = () => {
+    setShowModal(false);
+  };
+
   useEffect(() => {
     function handler(event) {
       // //if click is on trigger element, toggle modal
@@ -54,7 +58,7 @@ export default function SearchModal({ getLocation }) {
                 </div>
                 {/*body*/}
                 <div ref={modalRef} className="relative p-6 flex-auto">
-                  <SearchForm getLocation={getLocation} />
+                  <SearchForm getLocation={getLocation} hideModal={hideModal} />
                 </div>
                 {/*footer*/}
                 {/* <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
