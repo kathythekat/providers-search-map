@@ -45,9 +45,12 @@ const SearchForm = ({ getLocation, hideModal }) => {
         </div>
       ))}
       <div className="flex flex-col items-center pt-3">
-        {" "}
-        Show more results
-        <FontAwesomeIcon onClick={toggleResults} icon={faAngleDown} size="2x" />
+        <FontAwesomeIcon
+          onClick={toggleResults}
+          icon={faAngleDown}
+          size="3x"
+          className="cursor-pointer animate-bounce"
+        />
       </div>
       <div className="flex items-center justify-end pt-4 border-t border-solid border-blueGray-200 rounded-b">
         <button

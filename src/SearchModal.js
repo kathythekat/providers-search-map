@@ -38,7 +38,7 @@ export default function SearchModal({ getLocation }) {
       </button>
       {showModal ? (
         <>
-          <div className="modal-mask justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-500 outline-none focus:outline-none">
+          <div className="modal-mask justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-500 outline-none focus:outline-none bg-gray-900 bg-opacity-20">
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
               {/* FORM GOES HERE */}
               <div className="modal-form border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
@@ -60,16 +60,6 @@ export default function SearchModal({ getLocation }) {
                 <div ref={modalRef} className="relative p-6 flex-auto">
                   <SearchForm getLocation={getLocation} hideModal={hideModal} />
                 </div>
-                {/*footer*/}
-                {/* <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                  <button
-                    className="bg-green-500 text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="submit"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Search
-                  </button>
-                </div> */}
               </div>
             </div>
           </div>

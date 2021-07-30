@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import providers from "./providers_with_specialties.json";
-import specialtiesCodes from "./specialties.json";
+import filterProviders from "./helpers/filterProviders";
 
 const Map = ({ specialty }) => {
   console.log("map being rendered");
@@ -10,10 +9,8 @@ const Map = ({ specialty }) => {
 
   useEffect(() => {
     function filterResults() {
-      const filteredResults = providers.filter((provider) =>
-        provider.specialties.some((sp) => specialtiesCodes[sp] === specialty[0])
-      );
-      setProvidersData(filteredResults.slice(0, 100));
+      const providersBasedOnSpecialty = filterProviders(specialty);
+      setProvidersData(providersBasedOnSpecialty.slice(0, 100));
     }
     if (specialty) filterResults();
   }, [specialty]);
@@ -32,12 +29,15 @@ const Map = ({ specialty }) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {providersData &&
-          providersData.map((p) => (
+          providersData.map((provider) => (
             <Marker
-              position={[p.location.latLng.lat, p.location.latLng.lng]}
-              key={p.id}
+              position={[
+                provider.location.latLng.lat,
+                provider.location.latLng.lng,
+              ]}
+              key={provider.id}
             >
-              <Popup>{p.name}</Popup>
+              <Popup>{provider.name}</Popup>
             </Marker>
           ))}
       </MapContainer>
