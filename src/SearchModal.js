@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import SearchForm from "./SearchForm";
 
-export default function SearchModal() {
+export default function SearchModal({ getLocation }) {
   const [showModal, setShowModal] = useState(false);
   const modalRef = useRef();
   const triggerRef = useRef();
@@ -54,25 +54,18 @@ export default function SearchModal() {
                 </div>
                 {/*body*/}
                 <div ref={modalRef} className="relative p-6 flex-auto">
-                  <SearchForm />
+                  <SearchForm getLocation={getLocation} />
                 </div>
                 {/*footer*/}
-                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                  {/* <button
-                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Close
-                  </button> */}
+                {/* <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
                   <button
                     className="bg-green-500 text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
+                    type="submit"
                     onClick={() => setShowModal(false)}
                   >
                     Search
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
