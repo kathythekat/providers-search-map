@@ -1,3 +1,5 @@
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef, useState, useEffect } from "react";
 import SearchForm from "./SearchForm";
 
@@ -34,7 +36,10 @@ export default function SearchModal({ getSearchResults }) {
         onClick={() => setShowModal(true)}
         ref={triggerRef}
       >
-        Search for providers
+        <div>
+          <FontAwesomeIcon icon={faSearch} size="lg" />
+          <span className="px-2">Search</span>
+        </div>
       </button>
       {showModal ? (
         <>

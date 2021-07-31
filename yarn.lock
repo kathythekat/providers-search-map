@@ -1528,7 +1528,7 @@
     "schema-utils" "^2.6.5"
     "source-map" "^0.7.3"
 
-"@react-leaflet/core@^1.1.0":
+"@react-leaflet/core@^1.0.2", "@react-leaflet/core@^1.1.0":
   "integrity" "sha512-zFxMHgfjCi7khRVB7o7H8NoJl36NaezvfcaeEurVXx22lAGHFlTHiSuLOGA4tOiHj+Ep+Lo3uwUGJ3YM9BGkHg=="
   "resolved" "https://registry.npmjs.org/@react-leaflet/core/-/core-1.1.0.tgz"
   "version" "1.1.0"
@@ -7154,7 +7154,12 @@
     "lodash" "^4.17.5"
     "webpack-sources" "^1.1.0"
 
-"leaflet@^1.7.1":
+"leaflet.markercluster@^1.4.1":
+  "integrity" "sha512-Fvf/cq4o806mJL50n+fZW9+QALDDLPvt7vuAjlD2vfnxx3srMDs2vWINJze4nKYJYRY45OC6tM/669C3pLwMCA=="
+  "resolved" "https://registry.npmjs.org/leaflet.markercluster/-/leaflet.markercluster-1.5.0.tgz"
+  "version" "1.5.0"
+
+"leaflet@^1.3.1", "leaflet@^1.6.0", "leaflet@^1.7.1":
   "integrity" "sha512-/xwPEBidtg69Q3HlqPdU3DnrXQOvQU/CCHA1tcDQVzOwm91YMYaILjNp7L4Eaw5Z4sOYdbBz6koWyibppd8Zqw=="
   "resolved" "https://registry.npmjs.org/leaflet/-/leaflet-1.7.1.tgz"
   "version" "1.7.1"
@@ -7277,11 +7282,6 @@
   "integrity" "sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0="
   "resolved" "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz"
   "version" "3.0.0"
-
-"lodash.filter@^4.6.0":
-  "integrity" "sha1-ZosdSYFgOuHMWm+nYBQ+SAtMSs4="
-  "resolved" "https://registry.npmjs.org/lodash.filter/-/lodash.filter-4.6.0.tgz"
-  "version" "4.6.0"
 
 "lodash.memoize@^4.1.2":
   "integrity" "sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4="
@@ -9532,7 +9532,17 @@
   "resolved" "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz"
   "version" "17.0.1"
 
-"react-leaflet@^3.2.0":
+"react-leaflet-markercluster@^3.0.0-rc1":
+  "integrity" "sha512-wr8ERtx73sY0uVoQAM1v1vsA5Vsbdgyqc88h+Eo2kYRwNdkVTEOoUTnAh3CgGuOyP0Y9QLd2dKGupGkufpwryQ=="
+  "resolved" "https://registry.npmjs.org/react-leaflet-markercluster/-/react-leaflet-markercluster-3.0.0-rc1.tgz"
+  "version" "3.0.0-rc1"
+  dependencies:
+    "@react-leaflet/core" "^1.0.2"
+    "leaflet" "^1.6.0"
+    "leaflet.markercluster" "^1.4.1"
+    "react-leaflet" "^3.0.0"
+
+"react-leaflet@^3.0.0", "react-leaflet@^3.2.0":
   "integrity" "sha512-eHVqoRGjW8T9GxLt7jyTKP3BDQ7XQ5AD+tc/zkbaABn1dbmREDy8GojNcYjZQa3QFLQoOLQMcUC1PTtzytZpUA=="
   "resolved" "https://registry.npmjs.org/react-leaflet/-/react-leaflet-3.2.0.tgz"
   "version" "3.2.0"

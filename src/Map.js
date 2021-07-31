@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import filterProviders from "./helpers/filterProviders";
+import MarkerClusterGroup from "react-leaflet-markercluster";
+import "./Map.css";
 
 const Map = ({ specialty }) => {
   console.log("map being rendered");
@@ -18,7 +20,7 @@ const Map = ({ specialty }) => {
   return (
     <>
       <MapContainer
-        className="relative w-screen"
+        className="relative w-screen markercluster-map"
         style={{ height: "100%" }}
         center={[37.9295254, -101.2235221]}
         zoom={5}
@@ -28,6 +30,7 @@ const Map = ({ specialty }) => {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+
         {providersData &&
           providersData.map((provider) => (
             <Marker

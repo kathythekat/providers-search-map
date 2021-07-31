@@ -44,11 +44,12 @@ const SearchForm = ({ getSearchResults, hideModal }) => {
         </div>
       ))}
       <div className="flex flex-col items-center pt-3">
+        Show more
         <FontAwesomeIcon
           onClick={toggleResults}
           icon={faAngleDown}
-          size="3x"
-          className="cursor-pointer hover:text-green-500"
+          size="2x"
+          className="cursor-pointer hover:text-gray-500"
         />
       </div>
       <div className="flex items-center justify-end pt-4 border-t border-solid border-blueGray-200 rounded-b">
