@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import SearchForm from "./SearchForm";
 
-export default function SearchModal({ getLocation }) {
+export default function SearchModal({ getSearchResults }) {
   const [showModal, setShowModal] = useState(false);
   const modalRef = useRef();
   const triggerRef = useRef();
@@ -10,6 +10,7 @@ export default function SearchModal({ getLocation }) {
     setShowModal(false);
   };
 
+  //TODO: put this in custom hook
   useEffect(() => {
     function handler(event) {
       // //if click is on trigger element, toggle modal
@@ -21,7 +22,6 @@ export default function SearchModal({ getLocation }) {
         return setShowModal(false);
       }
     }
-
     window.addEventListener("click", handler);
     return () => window.removeEventListener("click", handler);
   }, []);
@@ -40,12 +40,10 @@ export default function SearchModal({ getLocation }) {
         <>
           <div className="modal-mask justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-500 outline-none focus:outline-none bg-gray-900 bg-opacity-20">
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
-              {/* FORM GOES HERE */}
               <div className="modal-form border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
                   <h3 className="text-3xl font-semibold">
-                    Search by specialty
+                    Filter by specialty
                   </h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -56,9 +54,11 @@ export default function SearchModal({ getLocation }) {
                     </span>
                   </button>
                 </div>
-                {/*body*/}
                 <div ref={modalRef} className="relative p-6 flex-auto">
-                  <SearchForm getLocation={getLocation} hideModal={hideModal} />
+                  <SearchForm
+                    getSearchResults={getSearchResults}
+                    hideModal={hideModal}
+                  />
                 </div>
               </div>
             </div>

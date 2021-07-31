@@ -4,12 +4,12 @@ import filterProviders from "./helpers/filterProviders";
 
 const Map = ({ specialty }) => {
   console.log("map being rendered");
-  console.log("SPECIALTY", specialty);
   const [providersData, setProvidersData] = useState([]);
 
   useEffect(() => {
     function filterResults() {
       const providersBasedOnSpecialty = filterProviders(specialty);
+      console.log(providersBasedOnSpecialty);
       setProvidersData(providersBasedOnSpecialty.slice(0, 100));
     }
     if (specialty) filterResults();

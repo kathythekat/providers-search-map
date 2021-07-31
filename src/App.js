@@ -4,14 +4,16 @@ import Map from "./Map";
 import SearchModal from "./SearchModal";
 
 function App() {
-  const [results, setResults] = useState(null);
-  const getLocation = (choice) => {
-    setResults(choice);
+  const [searchResults, setSearchResults] = useState(null);
+  const getSearchResults = (choice) => {
+    setSearchResults(choice);
   };
+
+  console.log("search results", searchResults);
   return (
     <div className="h-screen flex flex-col">
-      <SearchModal getLocation={getLocation} />
-      <Map specialty={results} />
+      <SearchModal getSearchResults={getSearchResults} />
+      <Map specialty={searchResults} />
     </div>
   );
 }

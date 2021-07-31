@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-const SearchForm = ({ getLocation, hideModal }) => {
+const SearchForm = ({ getSearchResults, hideModal }) => {
   const specialtiesList = Object.values(specialties);
   const groupedSpecialties = splitSpecialties(specialtiesList);
   const [resultsIdx, setResultsIdx] = useState(0);
@@ -12,12 +12,11 @@ const SearchForm = ({ getLocation, hideModal }) => {
 
   function handleChange(e) {
     setSpecialtyChoice((choice) => [...choice, e.target.value]);
-    console.log(specialtyChoice);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    getLocation(specialtyChoice);
+    getSearchResults(specialtyChoice);
     console.log("submitted");
     hideModal();
   }
@@ -49,7 +48,7 @@ const SearchForm = ({ getLocation, hideModal }) => {
           onClick={toggleResults}
           icon={faAngleDown}
           size="3x"
-          className="cursor-pointer animate-bounce"
+          className="cursor-pointer hover:text-green-500"
         />
       </div>
       <div className="flex items-center justify-end pt-4 border-t border-solid border-blueGray-200 rounded-b">
