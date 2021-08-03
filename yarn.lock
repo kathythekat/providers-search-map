@@ -9542,7 +9542,7 @@
     "leaflet.markercluster" "^1.4.1"
     "react-leaflet" "^3.0.0"
 
-"react-leaflet@^3.0.0", "react-leaflet@^3.2.0":
+"react-leaflet@^3.0.0", "react-leaflet@^3.0.2":
   "integrity" "sha512-eHVqoRGjW8T9GxLt7jyTKP3BDQ7XQ5AD+tc/zkbaABn1dbmREDy8GojNcYjZQa3QFLQoOLQMcUC1PTtzytZpUA=="
   "resolved" "https://registry.npmjs.org/react-leaflet/-/react-leaflet-3.2.0.tgz"
   "version" "3.2.0"

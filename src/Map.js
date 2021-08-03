@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import filterProviders from "./helpers/filterProviders";
 import MarkerClusterGroup from "react-leaflet-markercluster";
-import "./Map.css";
 
 const Map = ({ specialty }) => {
   console.log("map being rendered");
@@ -12,7 +11,7 @@ const Map = ({ specialty }) => {
     function filterResults() {
       const providersBasedOnSpecialty = filterProviders(specialty);
       console.log(providersBasedOnSpecialty);
-      setProvidersData(providersBasedOnSpecialty.slice(0, 100));
+      setProvidersData(providersBasedOnSpecialty);
     }
     if (specialty) filterResults();
   }, [specialty]);
@@ -30,19 +29,33 @@ const Map = ({ specialty }) => {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-
-        {providersData &&
-          providersData.map((provider) => (
-            <Marker
-              position={[
-                provider.location.latLng.lat,
-                provider.location.latLng.lng,
-              ]}
-              key={provider.id}
-            >
-              <Popup>{provider.name}</Popup>
-            </Marker>
-          ))}
+        <MarkerClusterGroup>
+          {providersData &&
+            providersData.map((provider) => (
+              <Marker
+                position={[
+                  provider.location.latLng.lat,
+                  provider.location.latLng.lng,
+                ]}
+                key={provider.id}
+              >
+                <Popup>
+                  <ul>
+                    <li>
+                      <img className="w-6 h-6" src={provider.logo} />
+                      {provider.name}
+                    </li>
+                    <li>
+                      {provider.location.address.city +
+                        "," +
+                        " " +
+                        provider.location.address.state}
+                    </li>
+                  </ul>
+                </Popup>
+              </Marker>
+            ))}
+        </MarkerClusterGroup>
       </MapContainer>
     </>
   );
