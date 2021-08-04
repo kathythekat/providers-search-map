@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import filterProviders from "./helpers/filterProviders";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 
-const Map = ({ specialty }) => {
+const Map = ({ specialty, defaultCoords }) => {
   console.log("map being rendered");
   const [providersData, setProvidersData] = useState([]);
 
@@ -19,10 +19,10 @@ const Map = ({ specialty }) => {
   return (
     <>
       <MapContainer
-        className="relative w-screen markercluster-map"
+        className="relative w-screen"
         style={{ height: "100%" }}
-        center={[37.9295254, -101.2235221]}
-        zoom={5}
+        center={defaultCoords}
+        zoom={4}
         scrollWheelZoom={true}
       >
         <TileLayer
@@ -37,19 +37,18 @@ const Map = ({ specialty }) => {
                   provider.location.latLng.lat,
                   provider.location.latLng.lng,
                 ]}
+                center={[
+                  provider.location.latLng.lat,
+                  provider.location.latLng.lng,
+                ]}
                 key={provider.id}
               >
                 <Popup>
                   <ul>
+                    <li>{provider.name}</li>
                     <li>
-                      <img className="w-6 h-6" src={provider.logo} />
-                      {provider.name}
-                    </li>
-                    <li>
-                      {provider.location.address.city +
-                        "," +
-                        " " +
-                        provider.location.address.state}
+                      {provider.location.address.city},{" "}
+                      {provider.location.address.state}
                     </li>
                   </ul>
                 </Popup>

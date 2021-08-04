@@ -8,7 +8,6 @@ import specialtiesCodes from "../specialties.json";
  * [{id, name, logo, ...specialties:[]}]
  */
 
-//TODO: not quite filtering all the results, fix this!
 const filterProviders = (selectedSpecialties) => {
   return providers.filter((provider) =>
     provider.specialties.some((specialty) =>
