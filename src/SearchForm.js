@@ -29,6 +29,12 @@ const SearchForm = ({ getSearchResults, hideModal }) => {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col">
+      <div className="flex items-center">
+        <input type="checkbox" value="select all" id="select-all"></input>
+        <label className="p-2" htmlFor="select-all">
+          Select All
+        </label>
+      </div>
       {groupedSpecialties[resultsIdx].map((specialty) => (
         <div key={specialty} className="flex items-center">
           <input

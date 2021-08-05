@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import filterProviders from "./helpers/filterProviders";
 import MarkerClusterGroup from "react-leaflet-markercluster";
+import providers from "./providers_with_specialties.json";
 
 const Map = ({ specialty, defaultCoords }) => {
   console.log("map being rendered");
