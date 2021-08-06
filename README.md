@@ -1,6 +1,6 @@
 # Dr. Search 🩺
 
-Locate a provider on the map! Currently still a work in progress. Planning to add more search filters, optimize, and impprove the UI/UX.
+Locate a provider on the map! Currently still a work in progress. Planning to add more search filters, optimize, and improve the UI/UX.
 
 [![Image from Gyazo](https://i.gyazo.com/b8c3752638245a68b95303966d07b01c.gif)](https://gyazo.com/b8c3752638245a68b95303966d07b01c)
 
