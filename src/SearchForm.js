@@ -9,13 +9,21 @@ const SearchForm = ({ getSearchResults, hideModal }) => {
   const groupedSpecialties = splitSpecialties(specialtiesList);
   const [resultsIdx, setResultsIdx] = useState(0);
   const [specialtyChoice, setSpecialtyChoice] = useState([]);
+  const [isChecked, setIsChecked] = useState(
+    new Array(specialtiesList.length).fill(false)
+  );
 
-  function handleChange(e) {
+  function handleChange(e, position) {
     setSpecialtyChoice((choice) => [...choice, e.target.value]);
+    const updateCheckbox = isChecked.map((checked, index) =>
+      index === position ? !checked : checked
+    );
+    setIsChecked(updateCheckbox);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
+    setSpecialtyChoice((choice) => [...choice, e.target.value]);
     getSearchResults(specialtyChoice);
     console.log("submitted");
     hideModal();
@@ -35,14 +43,15 @@ const SearchForm = ({ getSearchResults, hideModal }) => {
           Select All
         </label>
       </div>
-      {groupedSpecialties[resultsIdx].map((specialty) => (
+      {groupedSpecialties[resultsIdx].map((specialty, idx) => (
         <div key={specialty} className="flex items-center">
           <input
-            onChange={handleChange}
+            onChange={(e) => handleChange(e, idx)}
             type="checkbox"
             value={specialty}
             name={specialty}
             id={specialty}
+            checked={isChecked[idx]}
           ></input>
           <label className="p-2" htmlFor={specialty}>
             {specialty}
